@@ -1,0 +1,60 @@
+# Site Info
+title:              "A Simple Collection"
+description:        "Collection of Notes!"
+#google_verify:      # Put your Google Verification here
+# google_analytics:      # Put your Google Analytics codo
+
+# Author Info
+author_name:        "Vara Prasad B" # Your name here
+author_email:       vara10110@gmail.com # Your email here
+# author_gravatar:    # Your Gravatar md5 hash here for logo
+twitter_username:   S3v3ru5 # Your Twitter username here
+github_username:    S3v3ru5_ # Your GitHub username here
+
+# Site Settings
+baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
+permalink:          /notes/:title # Post permalink
+timezone:           Asia/Calcutta # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+mathjax:            false  # enables support for mathjax - set to false to disable
+
+# Disqus Comments
+# disqus:
+    # Leave shortname blank to disable comments site-wide.
+    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+    # shortname: 
+
+
+
+
+# Site Build
+highlighter:        rouge
+markdown:           kramdown
+kramdown:
+    input:          GFM
+sass:
+    style:          :compressed
+
+# Other Params
+include:            [ "robots.txt" ]
+exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
+gems:
+  - jekyll-sitemap
+
+
+
+defaults:
+  -
+    scope:
+      path:         ""
+    values:
+      layout:       "null"
+  -
+    scope:
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      type:         "posts"
+    values:
+      layout:       "post"

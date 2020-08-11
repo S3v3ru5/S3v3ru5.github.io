@@ -1,0 +1,62 @@
+---
+layout: default
+title: Tag
+permalink: tags
+---
+
+{% comment %}
+=======================
+The following part extracts all the tags from your posts and sort tags, so that you do not need to manually collect your tags to a place.
+=======================
+{% endcomment %}
+{% assign rawtags = "" %}
+{% for post in site.posts %}
+	{% assign ttags = post.tags | join:'|' | append:'|' %}
+	{% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+{% comment %}
+=======================
+The following part removes dulpicated tags and invalid tags like blank tag.
+=======================
+{% endcomment %}
+{% assign tags = "" %}
+{% for tag in rawtags %}
+	{% if tag != "" %}
+		{% if tags == "" %}
+			{% assign tags = tag | split:'|' %}
+		{% endif %}
+		{% unless tags contains tag %}
+			{% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+		{% endunless %}
+	{% endif %}
+{% endfor %}
+
+<div class="tags-expo">
+    <section>
+  <div class="tags-expo-list">
+    {% for tag in site.tags %}
+    <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
+    {% endfor %}
+  </div>
+    </section>
+  <section>
+    {% for tag in site.tags %}
+    <h3 id="{{ tag[0] }}">{{ tag[0] }}&#172;</h3>
+	{% for post in tag[1] %}
+    <ul>
+	<li>
+	    <div class="post-date">
+		<span>{{ post.date | date: "%b %d" }}</span>
+	    </div>
+	    <div class="title">
+		<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+	    </div>
+	</li>
+    </ul>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </section>
+</div>

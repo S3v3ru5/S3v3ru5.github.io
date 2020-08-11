@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<article>
+
+	<div class="center">
+		<h1>{{ page.title }}</h1>
+		<time>{{ page.date | date: '%B %-d, %Y' }}</time>
+	</div>
+
+	<section>
+	    <div class="tags-expo">
+		<div class="tags-expo-list">
+		    {% if page.tags %} 
+		    {% for tag in page.tags %}
+		    <a href="{{ site.baseurl }}/tags#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+		    {% endfor %}
+		    {% endif %}
+		</div>
+	    </div>
+	</section>
+	<div class="divider"></div>
+
+	{{ content }}
+
+</article>
+
+
+
+
+
+<div class="page-navigation">
+    {% if page.next.url %}
+    <a class="next" href="{{page.next.url}}" title="NEXT: {{page.next.title}}">&lt;&lt;</a>
+    <span> &middot; </span>
+    {% endif %}
+    <a class="home" href="{{site.baseurl}}/" title="Back to Homepage">Home</a>
+    {% if page.previous.url %}
+    <span> &middot; </span>
+    <a class="prev" href="{{page.previous.url}}" title="PREV: {{page.previous.title}}">&gt;&gt;</a>
+    {% endif %}
+</div>
