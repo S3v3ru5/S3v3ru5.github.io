@@ -28,7 +28,8 @@ img {
     max-width: 100%;
 }
 a {
-    color: inherit;
+    /*color: inherit;*/
+    color: #0366d6;
     text-decoration: none;
     &.image {
 	display: block;
@@ -230,8 +231,9 @@ article {
 
         a{
             padding-bottom: 2px;
-            border-bottom-width: 1px;
+            border-bottom-width: 0px;
             border-bottom-style: solid;
+            color: #0366d6;
         }
     }
     .footnote {
@@ -262,6 +264,7 @@ article {
     a:hover {
 
 	border-color: #0366d6;
+  border-style: none;
 	color: #0366d6;
     }
     .highlight {
@@ -336,7 +339,8 @@ section {
 	box-sizing: border-box;
       }
       a:hover{
-        border-color: #0366d6;
+        /*border-color: #0366d6;*/
+        border-style: none;
         color: #0366d6;
       }
       .post-date {
@@ -595,4 +599,26 @@ pre[class*="language-"] {
   &.entity {
     cursor: help;
   }
+}
+
+/*gist_embed style.css 
+https://github.com/kashif-umair/gist-embed/blob/master/style.css*/
+
+.gist-file {
+    background-color: #f8f8f8;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 1px solid rgb(221, 221, 221);
+    box-sizing: border-box;
+    color: #333333;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    overflow: auto;
+    padding: 6px 10px;
+    word-wrap: normal;
 }
