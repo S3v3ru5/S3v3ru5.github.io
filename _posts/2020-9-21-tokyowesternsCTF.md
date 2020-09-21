@@ -1,6 +1,6 @@
 ---
-title: TokyoWesterns CTF 2020 Writeups
-updated: 2020-8-2 19:46:30
+title: TokyoWesterns CTF 2020 Writeups 1
+updated: 2020-9-21 19:46:30
 tags: [crypto,writeup,pwn]
 ---
 

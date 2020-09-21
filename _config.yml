@@ -15,7 +15,7 @@ github_username:    S3v3ru5_ # Your GitHub username here
 baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
 permalink:          /notes/:title # Post permalink
 timezone:           Asia/Calcutta # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-mathjax:            false  # enables support for mathjax - set to false to disable
+mathjax:            true  # enables support for mathjax - set to false to disable
 
 # Disqus Comments
 # disqus:
