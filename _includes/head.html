@@ -24,7 +24,18 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/core.css">
 <link rel="canonical" href="{{ page.url | prepend: site.baseurl }}">
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml" />
+
+<!-- Highlightjs Github Gist theme -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/an-old-hope.min.css" integrity="sha512-pHbw/heFWZcIQnE/c/R0rGx+jmWwAju9YJZ9S3l5H7Ns34x3/gxJ1PQY5JS5HWO89OOKfDvcJZskcYmqoBlcRQ==" crossorigin="anonymous" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Fonts -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 
 {% if site.mathjax == true %}
 <!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->

@@ -28,9 +28,9 @@ we were given `task.rb` and `output` of it.
 `flag` is encrypted with textbook RSA. As the name of the challenge suggests,
 twin private exponents are generated (d1, d1 + 2) and their corresponding public exponents (e1, e2) are given.<br>
 `task.rb`
-<code id="gist-5c1b7a337f56a7237cc7a1e75d5bf193" style="background-color: white" data-file="twind-task.rb" data-showLineNumbers="false"></code>
+<script src="https://gist.github.com/S3v3ru5/5c1b7a337f56a7237cc7a1e75d5bf193.js?file=twind-task.rb"></script>
 `output`
-<code id="gist-5c1b7a337f56a7237cc7a1e75d5bf193" style="background-color: white" data-file="small_code_snippets.py" data-line="2-5" data-showFooter="false"></code>
+<script src="https://gist.github.com/S3v3ru5/5c1b7a337f56a7237cc7a1e75d5bf193.js?file=small_code_snippets.py"></script>
 
 Using e1 and e2, we can write equations as follows
 ```python
