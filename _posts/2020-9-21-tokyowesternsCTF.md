@@ -176,7 +176,7 @@ To solve this challenge we have to calculate `x`, `y` given `k`, `n`, `message` 
 
 `x**2 + k*y**2 = message mod n` <br>
 
-I found this paper [https://www.researchgate.net/publication/262234058\_An\_efficient\_solution\_of\_the\_congruence](https://www.researchgate.net/publication/262234058_An_efficient_solution_of_the_congruence) by reading through and following various references mentioned in research papers which came up when searched for `solving bivariate equations` in Google engine.<br>
+I found this paper [https://www.researchgate.net/publication/262234058\_An\_efficient\_solution\_of\_the\_congruence](https://www.researchgate.net/publication/262234058_An_efficient_solution_of_the_congruence)<br>
 
 That paper gives an efficient algorithm to solve the exact equation as in our challenge. so, all we need to do is implement the algorithm described in the paper.
 
