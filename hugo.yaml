@@ -1,0 +1,112 @@
+baseURL: "https://s3v3ru5.github.io/"
+title: "S3v3ru5 Blog"
+theme: PaperMod
+
+# Updated pagination syntax
+pagination:
+  pagerSize: 5  # Number of posts per page
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "My Blog"
+  description: "My personal blog about tech and stuff"
+  keywords: [Blog, Portfolio]
+  author: "S3v3ru5"
+  math: true
+  
+  defaultTheme: dark # auto, dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  hideAuthor: true
+  showtoc: false
+  tocopen: false
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "<link / abs url>"
+    favicon16x16: "<link / abs url>"
+    favicon32x32: "<link / abs url>"
+    apple_touch_icon: "<link / abs url>"
+    safari_pinned_tab: "<link / abs url>"
+
+  label:
+    text: "Home"
+    icon: /apple-touch-icon.png
+    iconHeight: 35
+
+  # Home page info
+  homeInfoParams:
+    Title: ""
+    Content: ""
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/S3v3ru5_"
+    - name: github
+      url: "https://github.com/S3v3ru5"
+
+  profileMode:
+    enabled: false
+  
+  social:
+    twitter: "https://twitter.com/S3v3ru5_"
+  
+  mainSections:
+    - posts
+
+menu:
+  main:
+    - identifier: audits
+      name: Audits
+      url: /audits/
+      weight: 10
+    - identifier: cv
+      name: CV
+      url: /cv/
+      weight: 20
+    - identifier: archive
+      name: Archive
+      url: /notes/
+      weight: 30
+
+# Syntax highlighting
+pygmentsUseClasses: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      typographer: false  # Don't convert quotes/dashes
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
+
+permalinks:
+  notes: /notes/:slug

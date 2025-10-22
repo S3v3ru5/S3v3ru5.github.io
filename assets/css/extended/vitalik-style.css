@@ -1,0 +1,976 @@
+/* ===== Vitalik Blog Style - Exact from vitalik.eth.limo =====
+   Based on his actual CSS with proper width and spacing
+*/
+
+/* === ROOT VARIABLES === */
+:root {
+  /* Light mode colors */
+  --color-bg: #fff;
+  --color-text: #333;
+  --color-anchor: #337ab7;
+  --color-heading: #111;
+  --color-divider: #cdcdcd;
+  --color-code-bg: #f7f7f7;
+  --color-code-text: #333;
+  --color-table-border: #c2c2c2;
+  --color-table-row-even: #f0f0f0;
+  --color-table-row-odd: #fff;
+  --color-toggle-accent: #c3a554;
+}
+
+/* Dark mode - Trigger on body.dark */
+body.dark {
+  --color-bg: #1c1c1c !important;
+  --color-text: #e5e5e5 !important;
+  /* 66D9EF or 78DCE8 or 77e1cd */
+  --color-anchor: #78DCE8 !important;
+  --color-anchor-article: #78DCE8 !important;
+  --color-heading: #fff !important;
+  --color-divider: #444 !important;
+  --color-table-border: #444 !important;
+  --color-table-row-even: #262626 !important;
+  --color-table-row-odd: #1c1c1c !important;
+}
+
+/* Light mode - Explicit for body without .dark class */
+body:not(.dark) {
+  --color-bg: #fff !important;
+  --color-text: #333 !important;
+  --color-anchor: #333 !important;
+  --color-anchor-article: #337ab7 !important;
+  --color-heading: #111 !important;
+  --color-divider: #cdcdcd !important;
+  --color-table-border: #c2c2c2 !important;
+  --color-table-row-even: #f0f0f0 !important;
+  --color-table-row-odd: #fff !important;
+}
+
+/* Code blocks - same in both modes (dark theme always) */
+:root {
+  --color-code-bg: #2d2d2d !important;
+  --color-code-text: #f7f7f7 !important;
+}
+
+/* === GLOBAL OVERRIDES === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 !important;
+  font-family: Inter, system-ui, sans-serif !important;
+  line-height: 1.8 !important;
+}
+
+/* Light mode body */
+body:not(.dark) {
+  background: #fff !important;
+  color: #333 !important;
+}
+
+/* Dark mode body */
+body.dark {
+  background: #1c1c1c !important;
+  color: #e5e5e5 !important;
+}
+
+/* DO NOT override header/navbar - let PaperMod handle it */
+
+/* === MAIN CONTAINER === */
+/* Only apply to single post pages, not home page */
+.page.post-single .main,
+article.post-single .main {
+  max-width: 1200px !important;
+  margin: auto !important;
+  padding: 40px 15px !important;
+}
+
+/* === POST CONTAINER === */
+/* Only style individual post pages */
+.page.post-single .post-single,
+article.post-single {
+  max-width: 760px !important;
+  margin: auto !important;
+  padding: 40px 15px !important;
+  position: relative !important;
+  letter-spacing: 0.025em !important;
+}
+
+/* === TYPOGRAPHY === */
+.post-content {
+  font-family: Inter, system-ui, sans-serif !important;
+  line-height: 1.8 !important;
+  color: var(--color-text) !important;
+  font-size: 16px !important;
+}
+
+/* === HEADINGS === */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6,
+.post-title {
+  color: var(--color-heading) !important;
+  line-height: 1.25 !important;
+  margin-top: 1.2em !important;
+  margin-bottom: 0.6em !important;
+  font-family: Inter, system-ui, sans-serif !important;
+}
+
+.post-title,
+.post-content h1 {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  margin-top: 42px !important;
+  margin-bottom: 0.5rem !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 1px solid rgb(205, 205, 205) !important;
+}
+
+.post-content h2 {
+  font-size: 1.6rem !important;
+}
+
+.post-content h3 {
+  font-size: 1.3rem !important;
+}
+
+/* === LINKS === */
+/* Article content links - use distinct color */
+body.dark a,
+body.dark a:link,
+body.dark a:visited {
+  color: var(--color-anchor-article) !important;
+}
+
+.post-content a,
+.post-content a:link,
+.post-content a:visited {
+  color: var(--color-anchor-article) !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  text-decoration-style: none !important;
+  border-bottom: none !important;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.post-content a:hover,
+.post-content a:focus,
+.post-content a:active {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  opacity: 0.8 !important;
+  border-bottom: none !important;
+  border: none !important;
+}
+
+/* Breadcrumbs use article link color */
+/* .breadcrumbs a {
+  color: var(--color-anchor-article) !important;
+} */
+
+/* === PARAGRAPHS === */
+.post-content p {
+  margin-top: 0 !important;
+  margin-bottom: 1em !important;
+}
+
+/* === LISTS === */
+.post-content ul,
+.post-content ol {
+  padding-left: 2em !important;
+  margin-bottom: 1em !important;
+}
+
+.post-content li {
+  margin-bottom: 0.5em !important;
+  line-height: 1.8 !important;
+}
+
+/* === BLOCKQUOTES === */
+.post-content blockquote {
+  margin: 0 0 1em !important;
+  padding: 0 1em !important;
+  border-left: 4px solid var(--color-divider) !important;
+  color: var(--color-text) !important;
+  opacity: 0.8 !important;
+  background: none !important;
+}
+
+/* === CODE === */
+/* Inline code - lighter gray background */
+.post-content code {
+  background: #f5f5f5 !important;
+  color: #1f1f1f !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 4px !important;
+  font-family: "Courier New", Courier, monospace !important;
+  font-size: 0.9em !important;
+}
+
+body.dark .post-content code {
+  background: #2d2d2d !important;
+  color: var(--color-text) !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 4px !important;
+  font-family: "Courier New", Courier, monospace !important;
+  font-size: 0.9em !important;
+}
+
+/* Code blocks - keep dark theme */
+.post-content pre {
+  background: #2d2d2d !important;
+  color: #f7f7f7 !important;
+  padding: 0.8em !important;
+  overflow: auto !important;
+  border-radius: 4px !important;
+  margin: 1em 0 !important;
+}
+
+.post-content pre code {
+  background: none !important;
+  padding: 0 !important;
+  color: #f7f7f7 !important;
+}
+
+/* Syntax highlighting - override any theme-specific colors */
+.post-content .highlight,
+.post-content .chroma {
+  background: #2d2d2d !important;
+}
+
+.post-content .highlight pre,
+.post-content .chroma pre {
+  background: #2d2d2d !important;
+}
+
+/* === TABLES === */
+.post-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1em 0 !important;
+}
+
+.post-content th,
+.post-content td {
+  border: 1px solid var(--color-table-border) !important;
+  padding: 0.6em 0.8em !important;
+}
+
+.post-content table tr:nth-child(2n) {
+  background: var(--color-table-row-even) !important;
+}
+
+.post-content table tr:nth-child(2n+1) {
+  background: var(--color-table-row-odd) !important;
+}
+
+/* === HORIZONTAL RULE === */
+.post-content hr {
+  height: 0.25em !important;
+  padding: 0 !important;
+  margin: 24px 0 !important;
+  background-color: var(--color-divider) !important;
+  border: 0 !important;
+}
+
+/* === IMAGES === */
+.post-content img,
+.post-content svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* === POST HEADER === */
+.post-header {
+  margin-bottom: 2em !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* Hide duplicate title that appears as h1 inside content */
+.post-content > h1:first-child {
+  display: none !important;
+}
+
+.post-description {
+  font-family: Inter, system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  color: var(--color-text) !important;
+  margin-top: 0.5em !important;
+}
+
+.post-meta {
+  font-family: Inter, system-ui, sans-serif !important;
+  font-size: 0.85rem !important;
+  color: var(--color-text) !important;
+  display: block !important;
+  margin-top: 0.5em !important;
+}
+
+/* === POST FOOTER === */
+.post-footer {
+  margin-top: 3em !important;
+  padding-top: 2em !important;
+  border-top: 1px solid var(--color-divider) !important;
+}
+
+/* Hide tags */
+.post-tags {
+  display: none !important;
+}
+
+/* Hide share buttons */
+.share-buttons,
+.share-icons {
+  display: none !important;
+}
+
+/* === BREADCRUMBS === */
+/* Don't override breadcrumbs - let PaperMod style them */
+
+/* === TABLE OF CONTENTS === */
+.toc {
+  font-family: Inter, system-ui, sans-serif !important;
+  font-size: 0.9em !important;
+  background-color: var(--color-code-bg) !important;
+  padding: 1.5em !important;
+  border-radius: 4px !important;
+  margin-bottom: 2em !important;
+}
+
+.toc summary {
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  margin-bottom: 1em !important;
+}
+
+.toc ul {
+  list-style: none !important;
+  padding-left: 1em !important;
+}
+
+.toc li {
+  margin-bottom: 0.4em !important;
+}
+
+.toc a {
+  text-decoration: none !important;
+}
+
+/* === MATH === */
+.katex,
+.katex-display {
+  font-size: 1.1em !important;
+}
+
+.katex-display {
+  margin: 1.5em 0 !important;
+}
+
+/* === RESPONSIVE - MOBILE (Portrait) === */
+@media only screen and (orientation: portrait) {
+  html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  
+  body {
+    font-size: 16px !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  * {
+    max-width: 100vw !important;
+  }
+  
+  .main {
+    padding: 10px 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  .post-single {
+    width: 100% !important;
+    padding: 15px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  
+  .post-content {
+    width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Ensure all child elements fit */
+  .post-content * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Make sure pre/code blocks don't overflow */
+  .post-content pre {
+    overflow-x: auto !important;
+    max-width: calc(100vw - 30px) !important;
+  }
+  
+  /* Make sure tables are responsive */
+  .post-content table {
+    display: block !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* Hide scroll-to-top button on mobile */
+  .top-link,
+  #top-link,
+  a[aria-label="go to top"] {
+    display: none !important;
+  }
+  
+  .post-title,
+  .post-content h1 {
+    font-size: 2.5rem !important;
+    margin-top: 20px !important;
+    word-wrap: break-word !important;
+  }
+  
+  .post-content h2 {
+    font-size: 2rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  .post-content h3 {
+    font-size: 1.75rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  .post-content p,
+  .post-content li,
+  .post-content div:not(.highlight),
+  .post-content span,
+  .post-content table {
+    font-size: 1.1rem !important;
+    line-height: 1.8 !important;
+  }
+  
+  .post-content code {
+    font-size: 1rem !important;
+    word-break: break-all !important;
+  }
+  
+  .post-meta {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Make header visible on mobile */
+  .header,
+  header,
+  .nav,
+  nav {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* === RESPONSIVE - DESKTOP (Landscape) === */
+@media only screen and (orientation: landscape) {
+  .post-single {
+    max-width: 760px !important;
+  }
+}
+
+/* === SPECIAL ELEMENTS === */
+.post-content strong {
+  font-weight: 700 !important;
+}
+
+.post-content em {
+  font-style: italic !important;
+}
+
+.post-content del {
+  text-decoration: line-through !important;
+  opacity: 0.6 !important;
+}
+
+/* === FOOTNOTES === */
+.post-content .footnotes {
+  margin-top: 3em !important;
+  padding-top: 1em !important;
+  border-top: 1px solid var(--color-divider) !important;
+  font-size: 0.9em !important;
+}
+
+.post-content .footnotes ol {
+  padding-left: 1.5em !important;
+}
+
+/* === FIGURE CAPTIONS === */
+.post-content figure {
+  margin: 2em 0 !important;
+}
+
+.post-content figcaption {
+  text-align: center !important;
+  font-size: 0.9em !important;
+  font-style: italic !important;
+  margin-top: 0.5em !important;
+  color: var(--color-text) !important;
+  opacity: 0.8 !important;
+}
+/* ===== LIST PAGE STYLES ONLY =====
+   These styles only apply to list/archive pages, not single posts
+   Using .list-page wrapper to scope all styles
+*/
+
+/* Inherit colors from your existing article CSS */
+.list-page {
+  --list-text-color: var(--color-text);
+  --list-heading-color: var(--color-heading);
+  --list-link-color: var(--color-anchor);
+  --list-date-color: var(--color-text);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 15px;
+}
+
+/* Year Section Styling */
+.list-page .year-section {
+  margin-bottom: 2.5rem;
+}
+
+.list-page .year-header {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  color: var(--list-heading-color);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* Post Entry Layout - Simple and Clean */
+.list-page .post-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 0.75rem 0;
+  margin-bottom: 0;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.list-page .post-entry:hover {
+  transform: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-page .post-entry-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Title Styling - No boxes */
+.list-page .post-entry .entry-title {
+  font-size: 1.125rem;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--list-text-color);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body.dark .list-page .post-entry .entry-title {
+    font-weight: bold;
+}
+
+
+
+.list-page .post-entry .entry-title a {
+  text-decoration: none;
+  color: var(--list-link-color);
+  display: block;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.list-page .post-entry .entry-title a:hover {
+  color: var(--list-link-color);
+  opacity: 0.8;
+  text-decoration: none;
+  border: none !important;
+  background: none !important;
+}
+
+/* Date Styling */
+.list-page .post-entry-date {
+  flex-shrink: 0;
+  min-width: fit-content;
+  text-align: right;
+}
+
+.list-page .post-entry-date time {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--list-date-color);
+  opacity: 0.6;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* Hide all pagination */
+.list-page .pagination,
+.list-page .page-footer,
+.list-page footer.page-footer,
+.pagination,
+.page-footer {
+  display: none !important;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .list-page .post-entry {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .list-page .post-entry-date {
+    text-align: left;
+  }
+  
+  .list-page .year-header {
+    font-size: 1.75rem;
+  }
+}
+
+/* Remove default post-entry styling that might interfere */
+.list-page .post-entry .entry-cover,
+.list-page .post-entry .entry-content,
+.list-page .post-entry .entry-footer,
+.list-page .post-entry .entry-meta,
+.list-page .post-entry .entry-summary {
+  display: none !important;
+}
+
+/* Remove any inherited borders or backgrounds */
+.list-page article {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* === Twitter Icon in Header === */
+#menu svg {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#menu a[title="Twitter"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu a[title="Twitter"]:hover svg {
+  opacity: 0.7;
+}
+
+/* ===== AUDITS PAGE - TWO SEPARATE TABLES ===== */
+
+.audits-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 15px;
+}
+
+.audits-page .page-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-heading);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.audits-page .post-description {
+  font-size: 1rem;
+  color: var(--color-text);
+  opacity: 0.7;
+  margin-bottom: 2rem;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.audits-page .page-content {
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.8;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.audits-page .page-content p {
+  margin-bottom: 1rem;
+}
+
+.audits-page .page-content strong {
+  font-weight: 600;
+}
+
+.audits-page .page-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-heading);
+}
+
+.audits-page .page-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-heading);
+}
+
+/* Tables */
+.audits-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 2rem 0;
+  font-size: 0.9rem;
+  table-layout: auto;
+}
+
+.audits-page table thead {
+  border-bottom: 2px solid var(--color-divider);
+}
+
+.audits-page table th {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-heading);
+  opacity: 0.8;
+}
+
+.audits-page table td {
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--color-divider);
+  vertical-align: middle;
+}
+
+/* Prevent date column from wrapping */
+.audits-page table td:nth-child(4),
+.audits-page table th:nth-child(4) {
+  white-space: nowrap;
+}
+
+.audits-page table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+body:not(.dark) .audits-page table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.audits-page table a {
+  color: var(--color-anchor);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.audits-page table a:hover {
+  opacity: 0.8;
+}
+
+/* Scroll emoji/icon for reports */
+.audits-page table .report-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+/* Tag colors - Auto-assigned based on hash */
+.audits-page table td {
+  position: relative;
+}
+
+/* Split tags and style them individually */
+.audits-page .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.audits-page .tag {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Light mode - Notion-style muted colors */
+body:not(.dark) .audits-page .tag[data-color="0"] {
+  background: rgba(211, 229, 239, 0.3);
+  color: rgb(50, 100, 150);
+}
+
+body:not(.dark) .audits-page .tag[data-color="1"] {
+  background: rgba(232, 222, 238, 0.3);
+  color: rgb(103, 36, 131);
+}
+
+body:not(.dark) .audits-page .tag[data-color="2"] {
+  background: rgba(250, 222, 201, 0.3);
+  color: rgb(159, 90, 38);
+}
+
+body:not(.dark) .audits-page .tag[data-color="3"] {
+  background: rgba(219, 237, 219, 0.3);
+  color: rgb(28, 117, 68);
+}
+
+body:not(.dark) .audits-page .tag[data-color="4"] {
+  background: rgba(255, 226, 221, 0.3);
+  color: rgb(193, 76, 66);
+}
+
+body:not(.dark) .audits-page .tag[data-color="5"] {
+  background: rgba(221, 235, 255, 0.3);
+  color: rgb(24, 51, 134);
+}
+
+body:not(.dark) .audits-page .tag[data-color="6"] {
+  background: rgba(253, 236, 200, 0.3);
+  color: rgb(133, 76, 29);
+}
+
+body:not(.dark) .audits-page .tag[data-color="7"] {
+  background: rgba(255, 228, 230, 0.3);
+  color: rgb(179, 44, 54);
+}
+
+body:not(.dark) .audits-page .tag[data-color="8"] {
+  background: rgba(213, 245, 239, 0.3);
+  color: rgb(15, 123, 108);
+}
+
+body:not(.dark) .audits-page .tag[data-color="9"] {
+  background: rgba(238, 224, 218, 0.3);
+  color: rgb(100, 71, 58);
+}
+
+body:not(.dark) .audits-page .tag[data-color="10"] {
+  background: rgba(227, 226, 224, 0.3);
+  color: rgb(89, 89, 89);
+}
+
+body:not(.dark) .audits-page .tag[data-color="11"] {
+  background: rgba(245, 224, 233, 0.3);
+  color: rgb(171, 51, 87);
+}
+
+/* Dark mode - Notion-style muted colors */
+body.dark .audits-page .tag[data-color="0"] {
+  background: rgba(45, 89, 135, 0.3);
+  color: rgb(151, 191, 230);
+}
+
+body.dark .audits-page .tag[data-color="1"] {
+  background: rgba(73, 47, 100, 0.3);
+  color: rgb(193, 151, 210);
+}
+
+body.dark .audits-page .tag[data-color="2"] {
+  background: rgba(127, 76, 48, 0.3);
+  color: rgb(245, 182, 136);
+}
+
+body.dark .audits-page .tag[data-color="3"] {
+  background: rgba(43, 89, 63, 0.3);
+  color: rgb(147, 197, 151);
+}
+
+body.dark .audits-page .tag[data-color="4"] {
+  background: rgba(127, 56, 49, 0.3);
+  color: rgb(255, 164, 151);
+}
+
+body.dark .audits-page .tag[data-color="5"] {
+  background: rgba(40, 69, 108, 0.3);
+  color: rgb(132, 170, 242);
+}
+
+body.dark .audits-page .tag[data-color="6"] {
+  background: rgba(114, 83, 43, 0.3);
+  color: rgb(255, 220, 130);
+}
+
+body.dark .audits-page .tag[data-color="7"] {
+  background: rgba(117, 55, 48, 0.3);
+  color: rgb(255, 163, 158);
+}
+
+body.dark .audits-page .tag[data-color="8"] {
+  background: rgba(28, 88, 76, 0.3);
+  color: rgb(115, 207, 188);
+}
+
+body.dark .audits-page .tag[data-color="9"] {
+  background: rgba(89, 74, 66, 0.3);
+  color: rgb(212, 180, 162);
+}
+
+body.dark .audits-page .tag[data-color="10"] {
+  background: rgba(69, 69, 69, 0.3);
+  color: rgb(181, 181, 181);
+}
+
+body.dark .audits-page .tag[data-color="11"] {
+  background: rgba(103, 49, 71, 0.3);
+  color: rgb(232, 153, 190);
+}
+
+/* Responsive - Mobile */
+@media screen and (max-width: 768px) {
+  .audits-page table {
+    font-size: 0.85rem;
+  }
+  
+  .audits-page table th,
+  .audits-page table td {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .audits-page table th {
+    font-size: 0.75rem;
+  }
+}

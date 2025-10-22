@@ -1,0 +1,83 @@
+{{- define "main" }}
+
+<div class="list-page">
+
+{{- if not .IsHome | and .Title }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>
+    {{ .Title }}
+    {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
+    <a href="index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+    {{- end }}
+  </h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description | markdownify }}
+  </div>
+  {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- $pages := union .RegularPages .Sections }}
+
+{{- if .IsHome }}
+{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+{{- end }}
+
+{{- if $pages }}
+
+{{- $currentYear := "" }}
+{{- range $index, $page := $pages }}
+
+{{- $postYear := $page.Date.Format "2006" }}
+
+{{- if ne $postYear $currentYear }}
+  {{- if ne $currentYear "" }}
+  </div>
+  {{- end }}
+  <div class="year-section">
+    <h2 class="year-header">{{ $postYear }}</h2>
+  {{- $currentYear = $postYear }}
+{{- end }}
+
+<article class="post-entry">
+  <div class="post-entry-content">
+    <h3 class="entry-title">
+      <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+    </h3>
+  </div>
+  <div class="post-entry-date">
+    <time datetime="{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}">
+      {{ $page.Date.Format "Jan 02" | upper }}
+    </time>
+  </div>
+</article>
+
+{{- end }}
+
+{{- if ne $currentYear "" }}
+</div>
+{{- end }}
+
+{{- end }}
+
+</div>
+
+{{- end }}{{- /* end main */ -}}
