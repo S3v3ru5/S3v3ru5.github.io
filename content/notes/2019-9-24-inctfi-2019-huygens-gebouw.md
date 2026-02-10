@@ -5,8 +5,8 @@ tags: [crypto,writeup,ECC,ECDSA,LLL]
 slug: inctfi-2019-huygens-gebouw
 ---
 In this challenge, we were given two python files and a service to connect.<br>
-[ecc.py](/resources/2019/huygens_gebouw/ecc.py){:target="_blank"} file is an implementation of elliptic curve arthimetic.<br>
-[ecdsa.py](/resources/2019/huygens_gebouw/ecdsa.py){:target="_blank"} file is the implementation of ECDSA algorithm.<br>
+[ecc.py](/resources/2019/huygens_gebouw/ecc.py) file is an implementation of elliptic curve arthimetic.<br>
+[ecdsa.py](/resources/2019/huygens_gebouw/ecdsa.py) file is the implementation of ECDSA algorithm.<br>
 The service is running the ecdsa.py file.
 
 In the `ecdsa.py` file
@@ -143,8 +143,8 @@ we got the private key, all that's required to get the flag is signing the messa
 After sending the signature, server greets us with the flag.
 
 Files
-- [signatures](/resources/2019/huygens_gebouw/signatures){:target="_blank"}
-- [solution.sage](/resources/2019/huygens_gebouw/ecc.py){:target="_blank"}
+- [signatures](/resources/2019/huygens_gebouw/signatures)
+- [solution.sage](/resources/2019/huygens_gebouw/ecc.py)
 
 ```
 FLAG : inctf{well_well_congratulations_ECDSA_biased_nonce_s0lver}

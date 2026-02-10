@@ -7,7 +7,7 @@ slug: zer0ptsctf-2020-dirty-laundry
 <h1> Dirty Laundry Challenge Writeup [Crypto] </h1>
 
 The description of this challenge doesn't give much information about the challenge. In the given attachments, there are two
-files [chall.py](/resources/2020/dirty-laundry/chall.py){:target="_blank"} and [output.txt](/resources/2020/dirty-laundry/output.txt){:target="_blank"}.
+files [chall.py](/resources/2020/dirty-laundry/chall.py) and [output.txt](/resources/2020/dirty-laundry/output.txt).
 
 This challenge is a combination of shamir secret sharing scheme and paillier cryptosystem.
 
@@ -123,7 +123,7 @@ After obtaining p, we can calculate the flag using above mentioned method.
 
 <h4> FLAG :: zer0pts{excellent_w0rk!y0u_are_a_master_0f_crypt0!!!} </h4>
 
-You can see the implementation of the solution [here](/resources/2020/dirty-laundry/solve.sage){:target="_blank"}).<br><br>
+You can see the implementation of the solution [here](/resources/2020/dirty-laundry/solve.sage)).<br><br>
 <h1> References </h1><br>
 1. <a href="https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing"> Shamir's Secret Sharing </a><br>
 2. <a href="https://en.wikipedia.org/wiki/Paillier_cryptosystem"> Paillier Cryptosystem </a><br>

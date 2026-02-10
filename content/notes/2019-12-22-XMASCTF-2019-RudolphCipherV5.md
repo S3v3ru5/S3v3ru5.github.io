@@ -6,7 +6,7 @@ slug: XMASCTF-2019-RudolphCipherV5
 ---
 <h1> RudolphCipherV5 Writeup [Crypto] </h1>
 
-<br> Two files are given in this challenge [server.py](/resources/2019/RudolphCipherV5/server.py){:target="_blank"} & [RudolphCipher.py](/resources/2019/RudolphCipherV5/RudolphCipher.py) and a service to connect. </br>
+<br> Two files are given in this challenge [server.py](/resources/2019/RudolphCipherV5/server.py) & [RudolphCipher.py](/resources/2019/RudolphCipherV5/RudolphCipher.py) and a service to connect. </br>
 Service works as follow
 ```
 

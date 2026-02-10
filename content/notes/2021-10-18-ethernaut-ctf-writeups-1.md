@@ -85,7 +85,7 @@ contract Fallback {
 }
 ```
 
-The goal of the challenge is to become owner of the contract and drain its funds. receive function can be used to set the owner. "receive" is a fallback function just like "fallback". "receive" is called when the message call to the contract contains some ether(value) and empty data field. Note that owner can also be changed by contributing large amount of ether to the contract. But contribute method checks that "value" is less than "0.001" ether, so, it would take more than $$10^{6}$$ contribute method calls to become a owner in this way. Once we become the owner using receive function draining the contract balance is straight forward, it can be done by calling the withdraw function.
+The goal of the challenge is to become owner of the contract and drain its funds. receive function can be used to set the owner. "receive" is a fallback function just like "fallback". "receive" is called when the message call to the contract contains some ether(value) and empty data field. Note that owner can also be changed by contributing large amount of ether to the contract. But contribute method checks that "value" is less than "0.001" ether, so, it would take more than $10^{6}$ contribute method calls to become a owner in this way. Once we become the owner using receive function draining the contract balance is straight forward, it can be done by calling the withdraw function.
 
 ---
 
@@ -314,7 +314,7 @@ contract Token {
 }
 ```
 
-Intially, we have 20 tokens which are represented using "balances" map. The contract also has methods to transfer and check balance of an address. To complete this challenge we should have more tokens in our balance than the intial amount. The bug is in the "transfer" function, before subtracting the transfered amount from the sender's balance it doesn't check correctly whether the sender has sufficient balance or not. As a result, when amount larger than the sender's balance is subtracted, due to integer underflow, the final value will be much much larger. "uint" type is used for balances whose range is $$[0, 2^{256} - 1]$$, so, when large value is subtracted from a smaller value, the final result will be a large value in the order of $$2^{256}$$. The final exploit is to call "transfer" method random "_to" address and slightly larger value than the balance.
+Intially, we have 20 tokens which are represented using "balances" map. The contract also has methods to transfer and check balance of an address. To complete this challenge we should have more tokens in our balance than the intial amount. The bug is in the "transfer" function, before subtracting the transfered amount from the sender's balance it doesn't check correctly whether the sender has sufficient balance or not. As a result, when amount larger than the sender's balance is subtracted, due to integer underflow, the final value will be much much larger. "uint" type is used for balances whose range is $[0, 2^{256} - 1]$, so, when large value is subtracted from a smaller value, the final result will be a large value in the order of $2^{256}$. The final exploit is to call "transfer" method random "_to" address and slightly larger value than the balance.
 
 ---
 

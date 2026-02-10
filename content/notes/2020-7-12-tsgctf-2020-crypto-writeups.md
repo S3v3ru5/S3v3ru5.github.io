@@ -8,15 +8,15 @@ slug: tsgctf-2020-crypto-writeups
 
 - [Beginners Crypto](#beginnerscrypto)
   - Category : Crypto
-  - Files : [beginner.py](/resources/2020/TSGCTF2020/beginners-crypto/beginner.py){:target="_blank"}
+  - Files : [beginner.py](/resources/2020/TSGCTF2020/beginners-crypto/beginner.py)
   - Points : 107
   - Solves : 86
-- [Modulus Amittendus](#Modulus_Amittendus){:target="_blank"}
+- [Modulus Amittendus](#Modulus_Amittendus)
   - Category : Crypto
-  - Files : [rsa.rb](/resources/2020/TSGCTF2020/modulus-amittendus/rsa.rb){:target="_blank"}, [pubkey.json](/resources/2020/TSGCTF2020/modulus-amittendus/pubkey.json){:target="_blank"}, [output.txt](/resources/2020/TSGCTF2020/modulus-amittendus/output.txt){:target="_blank"} 
+  - Files : [rsa.rb](/resources/2020/TSGCTF2020/modulus-amittendus/rsa.rb), [pubkey.json](/resources/2020/TSGCTF2020/modulus-amittendus/pubkey.json), [output.txt](/resources/2020/TSGCTF2020/modulus-amittendus/output.txt) 
   - Points : 365
   - Solves : 5
-  - solution code : [solve.py](/resources/2020/TSGCTF2020/modulus-amittendus/solve.py){:target="_blank"}
+  - solution code : [solve.py](/resources/2020/TSGCTF2020/modulus-amittendus/solve.py)
 
 ---
 # <a name="beginnerscrypto"></a> Beginners Crypto challenge writeup [Crypto]
@@ -50,7 +50,7 @@ As 5**175 > 2**400 resultant of above computation will give us the Original Flag
 # <a name="Modulus_Amittendus"> </a> Modulus Amittendus challenge writeup [Crypto]
 
 Luckily, I got First Blood for this Challenge.<br>
-In this challenge we were given [rsa.rb](/resources/2020/TSGCTF2020/modulus-amittendus/rsa.rb){:target="_blank"}, [output.txt](/resources/2020/TSGCTF2020/modulus-amittendus/output.txt){:target="_blank"}, [pubkey.json](/resources/2020/TSGCTF2020/modulus-amittendus/pubkey.json){:target="_blank"}.<br>
+In this challenge we were given [rsa.rb](/resources/2020/TSGCTF2020/modulus-amittendus/rsa.rb), [output.txt](/resources/2020/TSGCTF2020/modulus-amittendus/output.txt), [pubkey.json](/resources/2020/TSGCTF2020/modulus-amittendus/pubkey.json).<br>
 `rsa.rb` contains the implementation of Textbook rsa encryption.<br>
 `rsa.rb` generates two random primes `p` and `q` each 1024 bits long.<br>
 `output.txt` contains rsa encrypted flag with e = 65537.<br>
@@ -129,6 +129,6 @@ Given `p` we can calculate the value of `q` using `cf (qInv mod p)`. <br>
 
 After obtaining the value of `n = p * q`, decrypting the `ciphertext` gives us the `flag`. <br>
 
-Solution Script :: [solve.py](/resources/2020/TSGCTF2020/modulus-amittendus/solve.py){:target="_blank"}
+Solution Script :: [solve.py](/resources/2020/TSGCTF2020/modulus-amittendus/solve.py)
 
 FLAG :: TSGCTF{Okay_this_flag_will_be_quite_long_so_listen_carefully_Happiness_is_our_bodys_default_setting_Please_dont_feel_SAd_in_all_sense_Be_happy!_Anyway_this_challenge_is_simple_rewrite_of_HITCON_CTF_2019_Lost_Modulus_Again_so_Im_very_thankful_to_the_author}

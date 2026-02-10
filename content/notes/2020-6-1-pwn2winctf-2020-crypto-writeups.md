@@ -8,22 +8,22 @@ slug: pwn2winctf-2020-crypto-writeups
 
 - [Omni_Crypto](#omnicrypto)
   - Category : Crypto
-  - Files : [enc.py](/resources/2020/Pwn2Win2020/Omni_Crypto/enc.py){:target="_blank"}, [output.txt](/resources/2020/Pwn2Win2020/Omni_Crypto/output.txt){:target="_blank"}
+  - Files : [enc.py](/resources/2020/Pwn2Win2020/Omni_Crypto/enc.py), [output.txt](/resources/2020/Pwn2Win2020/Omni_Crypto/output.txt)
   - Points : 246
   - Solves : 32
-  - solution code : [omni_crypto_solve.sage](/resources/2020/Pwn2Win2020/Omni_Crypto/omni_crypto_solve.sage){:target="_blank"}
+  - solution code : [omni_crypto_solve.sage](/resources/2020/Pwn2Win2020/Omni_Crypto/omni_crypto_solve.sage)
 - [Load_qKeys](#lost_qkeys)
   - Category : Crypto
-  - Files : [server-model.py](/resources/2020/Pwn2Win2020/Lost_qkeys/server-model.py){:target="_blank"}
+  - Files : [server-model.py](/resources/2020/Pwn2Win2020/Lost_qkeys/server-model.py)
   - Points : 246
   - Solves : 32
-  - solution code : [lost_qkeys_solve.py](/resources/2020/Pwn2Win2020/Lost_qkeys/lost_qkeys_solve.py){:target="_blank"}
+  - solution code : [lost_qkeys_solve.py](/resources/2020/Pwn2Win2020/Lost_qkeys/lost_qkeys_solve.py)
 
 ---
 
 # <a name="omnicrypto"></a> Omni_Crypto challenge writeup [Crypto]
 
-In this challenge, we were given the [enc.py](/resources/2020/Pwn2Win2020/Omni_Crypto/enc.py){:target="_blank"} and [output.txt](/resources/2020/Pwn2Win2020/Omni_Crypto/output.txt){:target="_blank"} files.<br>
+In this challenge, we were given the [enc.py](/resources/2020/Pwn2Win2020/Omni_Crypto/enc.py) and [output.txt](/resources/2020/Pwn2Win2020/Omni_Crypto/output.txt) files.<br>
 `enc.py` implements rsa algorithm with primes of 1024 bits generated using the below function.
 ```python
 def getPrimes(size):
@@ -116,7 +116,7 @@ Decrypting the ciphertext gives us the flag,
 
 FLAG :: `Here is the message: CTF-BR{w3_n33d_more_resources_for_th3_0mni_pr0j3ct}\n`
 
-solution code :: [omni_crypto_solve.sage](/resources/2020/Pwn2Win2020/Omni_Crypto/omni_crypto_solve.sage){:target="_blank"}
+solution code :: [omni_crypto_solve.sage](/resources/2020/Pwn2Win2020/Omni_Crypto/omni_crypto_solve.sage)
 
 
 ---
@@ -124,7 +124,7 @@ solution code :: [omni_crypto_solve.sage](/resources/2020/Pwn2Win2020/Omni_Crypt
 
 # <a name="lost_qkeys"></a>Lost_qKeys crypto challenge writeup
 
-In this challenge, we were given with [server-model.py](/resources/2020/Pwn2Win2020/Lost_qkeys/server-model.py){:target="_blank"} file and an netcat connection.<br>
+In this challenge, we were given with [server-model.py](/resources/2020/Pwn2Win2020/Lost_qkeys/server-model.py) file and an netcat connection.<br>
 The `server-model.py` basically constructs a `quantum circuit` based on a `password`(taken from the user), `Key`(generated using  `os.urandom()`) and `flag`.
 It executes the circuit one time and measures the state of qubits and it gives the measured values to user.<br>
 `server-model.py` uses [qiskit framework](https://qiskit.org/) to simulate the circuit.
@@ -250,6 +250,6 @@ This function adds `Controlled Hadamard gate` to the `flag qubits` whose `contro
 
 The reason that I think this `addition of Controlled Hadamard gates doesn't change` much because it only applies on the `flag qubits` when `control qubit is 1` and if we see the operations(in methods `send_qubits` and `read_qubits`) which result in the control qubits and using description of the gates we can assume that the probability of control qubit being in state 1 is very less after the operations.
 
-solution code :: [lost_qkeys_solve.py](/resources/2020/Pwn2Win2020/Lost_qkeys/lost_qkeys_solve.py){:target="_blank"}
+solution code :: [lost_qkeys_solve.py](/resources/2020/Pwn2Win2020/Lost_qkeys/lost_qkeys_solve.py)
 
 `FLAG :: _#__CTF-BR{_1s_th4t_HoW_u_1mPl3meNt_@_QUantUm_0ne_t1m3_paD_???}_\\` 

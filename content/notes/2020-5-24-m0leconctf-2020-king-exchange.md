@@ -10,7 +10,7 @@ Luckily, I got First blood for this challenge.
 
 Note :: This may not be the intended solution, I solved this challenge mostly by assuming something and verifying them.
 
-In this challenge, we were given with two files [server.py](/resources/2020/KingExchange/server.py){:target="_blank"} and [output.txt](/resources/2020/KingExchange/output.txt){:target="_blank"}.
+In this challenge, we were given with two files [server.py](/resources/2020/KingExchange/server.py) and [output.txt](/resources/2020/KingExchange/output.txt).
 
 The Execution flow of `server.py` is quite simple, it generates a key using `Diffie-Hellman Key Exchange` and `encrypts
 the flag using AES` with shared key.
@@ -92,7 +92,7 @@ for the `p` value which our challenge uses, `(p**2 - 1)` i.e order has many smal
 We can use the `pohlig-hellman` attack over the `Complex finite field` to solve the `discrete log` first in sub groups with the help of bruteforce and Using
 `Chinese Remainder Theorem` to calculate the complete secret.
 
-[solve.py](/resources/2020/KingExchange/solve.py){:target="_blank"} contains my naive implementation of pohlig hellman attack and other solution code.
+[solve.py](/resources/2020/KingExchange/solve.py) contains my naive implementation of pohlig hellman attack and other solution code.
 
 My Failed (May be foolish) Attempt is I tried to convert Edwards curve with d = 0 to Weierstrass form, resulting Elliptic Curve is
 is a singular curve (node)  but [this attack](https://crypto.stackexchange.com/questions/61302/how-to-solve-this-ecdlp/61434) cannot work directly cause `a` 

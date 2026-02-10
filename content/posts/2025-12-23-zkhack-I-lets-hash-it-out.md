@@ -121,9 +121,9 @@ This is a system of 256 linear equations in 256 unknowns.
 Construct matrix $M$ where column $i$ contains the bits of message $m_i$:
 
 $$M = \begin{bmatrix}
-m_{1,1} & m_{2,1} & \cdots & m_{n,1} \\
-m_{1,2} & m_{2,2} & \cdots & m_{n,2} \\
-\vdots & \vdots & \ddots & \vdots \\
+m_{1,1} & m_{2,1} & \cdots & m_{n,1} \\\\
+m_{1,2} & m_{2,2} & \cdots & m_{n,2} \\\\
+\vdots & \vdots & \ddots & \vdots \\\\
 m_{1,256} & m_{2,256} & \cdots & m_{n,256}
 \end{bmatrix}$$
 

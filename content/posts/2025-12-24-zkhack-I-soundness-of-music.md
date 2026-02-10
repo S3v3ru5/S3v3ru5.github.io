@@ -115,11 +115,11 @@ This represents the prover's contribution to the input polynomial evaluation at 
 
 The setup provides only $[\rho L_j(\tau)]_1$, never the unblinded values $[L_j(\tau)]_1$. Without knowledge of $\rho$, the prover cannot compute $[\rho Q(\tau)]_1$ for arbitrary polynomials. The prover is restricted to polynomials in the span of the provided selectors:
 
-$$Q(x) \in \text{span}\{L_0(x), \ldots, L_n(x), O_0(x), \ldots, O_n(x)\}$$
+$$Q(x) \in \text{span}\\{L\_0(x), \ldots, L\_n(x), O\_0(x), \ldots, O\_n(x)\\}$$
 
 While the setup also includes unblinded powers $[\tau^0]_1, [\tau^1]_1, [\tau^2]_1, \ldots$ for computing $H(\tau)$, these cannot be used to compute $[\rho \cdot Q'(\tau)]_1$ for polynomials $Q'(x)$ outside the selector span. The blinding factor $\rho$ cryptographically enforces this restriction.
 
-**The $\alpha$ factors** provide knowledge soundness through the Knowledge of Exponent Assumption (KEA). The setup includes pairs $([\rho L_i(\tau)]_1, [\alpha_{\text{in}} \rho L_i(\tau)]_1)$ for each selector polynomial. When a prover produces commitments $(\pi_L, \pi'_L)$ satisfying the verification equation $e(\pi'_L, [1]_2) = e(\pi_L, [\alpha_{\text{in}}]_2)$, KEA guarantees the existence of an extractor that can recover witness coefficients $(v_0, \ldots, v_n)$ such that $\pi_L = \sum_i v_i [\rho L_i(\tau)]_1$. This prevents malleability attacks where proofs are copied or algebraically modified without knowledge of the underlying witness.
+**The $\alpha$ factors** provide knowledge soundness through the Knowledge of Exponent Assumption (KEA). The setup includes pairs $([\rho L\_i(\tau)]\_1, [\alpha\_{\text{in}} \rho L\_i(\tau)]\_1)$ for each selector polynomial. When a prover produces commitments $(\pi_L, \pi'_L)$ satisfying the verification equation $e(\pi'\_L, [1]\_2) = e(\pi\_L, [\alpha\_{\text{in}}]\_2)$, KEA guarantees the existence of an extractor that can recover witness coefficients $(v_0, \ldots, v_n)$ such that $\pi_L = \sum_i v_i [\rho L_i(\tau)]_1$. This prevents malleability attacks where proofs are copied or algebraically modified without knowledge of the underlying witness.
 
 ### Proof Structure
 
@@ -137,18 +137,18 @@ The prover computes:
 The verifier computes the public input contribution and performs four pairing checks:
 
 **1. Input knowledge check**:
-$$e(\pi'_{\text{input}}, [1]_2) = e(\pi_{\text{input}}, [\alpha_{\text{in}}]_2)$$
+$$e(\pi'\_{\text{input}}, [1]\_2) = e(\pi\_{\text{input}}, [\alpha\_{\text{in}}]\_2)$$
 
 **2. Output knowledge check**:
-$$e(\pi'_{\text{output}}, [1]_2) = e(\pi_{\text{output}}, [\alpha_{\text{out}}]_2)$$
+$$e(\pi'\_{\text{output}}, [1]\_2) = e(\pi\_{\text{output}}, [\alpha\_{\text{out}}]\_2)$$
 
 **3. Variable consistency check**:
-$$e(\pi_K, [\gamma]_2) = e(\text{PI} + \pi_{\text{input}} + \pi_{\text{output}}, [\beta\gamma]_2)$$
+$$e(\pi\_K, [\gamma]\_2) = e(\text{PI} + \pi\_{\text{input}} + \pi\_{\text{output}}, [\beta\gamma]\_2)$$
 
 where PI = public input contribution computed by verifier.
 
 **4. Divisibility check**:
-$$e(2 \cdot \text{PI} + 2 \cdot \pi_{\text{input}} - \pi_{\text{output}}, [1]_2) = e(\pi_H, [\rho^2 Z(\tau)]_2)$$
+$$e(2 \cdot \text{PI} + 2 \cdot \pi\_{\text{input}} - \pi\_{\text{output}}, [1]\_2) = e(\pi\_H, [\rho^2 Z(\tau)]\_2)$$
 
 This verifies that $H(\tau) \cdot Z(\tau) = P(\tau)$.
 
@@ -187,18 +187,20 @@ The prover provides the private input contribution $\pi_{\text{input}}$, and the
 
 Consider a valid proof $\pi$ for public inputs $(x_1, y_1)$. An attacker wants to forge a proof for different public inputs $(x_2, y_2)$. The verifier will compute different public contributions:
 
-$$\text{PI}_1 = \sum_{j \in \text{public}} v_{j,1} [\rho L_j(\tau)]_1$$
-$$\text{PI}_2 = \sum_{j \in \text{public}} v_{j,2} [\rho L_j(\tau)]_1$$
+$$\text{PI}\_1 = \sum\_{j \in \text{public}} v\_{j,1} [\rho L\_j(\tau)]\_1$$
 
-The difference $\Delta = \text{PI}_1 - \text{PI}_2$ would normally prevent the attack, as modifying public inputs breaks all verification equations. Two security mechanisms should prevent compensation for this difference:
+$$\text{PI}\_2 = \sum\_{j \in \text{public}} v\_{j,2} [\rho L\_j(\tau)]\_1$$
+
+The difference $\Delta = \text{PI}\_1 - \text{PI}\_2$ would normally prevent the attack, as modifying public inputs breaks all verification equations. Two security mechanisms should prevent compensation for this difference:
 
 1. **Polynomial restriction**: The prover cannot compute $[\rho Q(\tau)]_1$ for arbitrary polynomials $Q(x)$ due to the blinding factor $\rho$
 2. **Knowledge soundness**: The prover cannot produce valid alpha-shifted pairs without knowing the underlying witness
 
 However, the inclusion of $[\alpha_{\text{in}} \rho L_j(\tau)]_1$ for public indices breaks both barriers. The attacker can compute:
 
-$$\delta = \sum_{j \in \text{public}} (v_{j,1} - v_{j,2}) [\rho L_j(\tau)]_1$$
-$$\delta' = \sum_{j \in \text{public}} (v_{j,1} - v_{j,2}) [\alpha_{\text{in}} \rho L_j(\tau)]_1$$
+$$\delta = \sum\_{j \in \text{public}} (v\_{j,1} - v\_{j,2}) [\rho L\_j(\tau)]\_1$$
+
+$$\delta' = \sum\_{j \in \text{public}} (v\_{j,1} - v\_{j,2}) [\alpha\_{\text{in}} \rho L\_j(\tau)]\_1$$
 
 These values satisfy $\delta' = \alpha_{\text{in}} \cdot \delta$ by construction. Adding $\delta$ to $\pi_{\text{input}}$ exactly cancels the change in public input contribution, while adding $\delta'$ to $\pi'_{\text{input}}$ maintains the knowledge-of-exponent relationship required for verification.
 
@@ -209,30 +211,30 @@ These values satisfy $\delta' = \alpha_{\text{in}} \cdot \delta$ by construction
 
 **Step 1**: Calculate how the verifier's public input contribution changes.
 
-For $(x=1, y=4)$: verifier computes $\text{PI}_1 = 1 \cdot [\rho L_x(\tau)]_1 + 4 \cdot [\rho L_y(\tau)]_1$
+For $(x=1, y=4)$: verifier computes $\text{PI}\_1 = 1 \cdot [\rho L\_x(\tau)]\_1 + 4 \cdot [\rho L\_y(\tau)]\_1$
 
-For $(x=1, y=1)$: verifier computes $\text{PI}_2 = 1 \cdot [\rho L_x(\tau)]_1 + 1 \cdot [\rho L_y(\tau)]_1$
+For $(x=1, y=1)$: verifier computes $\text{PI}\_2 = 1 \cdot [\rho L\_x(\tau)]\_1 + 1 \cdot [\rho L\_y(\tau)]\_1$
 
 The difference: $\Delta = 3 \cdot [\rho L_y(\tau)]_1$
 
 **Step 2**: Adjust the proof's private input commitment to compensate.
 
-$$\pi_{\text{input},2} = \pi_{\text{input},1} + 3 \cdot [\rho L_y(\tau)]_1$$
+$$\pi\_{\text{input},2} = \pi\_{\text{input},1} + 3 \cdot [\rho L\_y(\tau)]\_1$$
 
-Now $\text{PI}_2 + \pi_{\text{input},2} = \text{PI}_1 + \pi_{\text{input},1}$, so the divisibility check will pass.
+Now $\text{PI}\_2 + \pi\_{\text{input},2} = \text{PI}\_1 + \pi\_{\text{input},1}$, so the divisibility check will pass.
 
 **Step 3**: Maintain the knowledge check relationship.
 
 The knowledge check requires:
 
-$$e(\pi'_{\text{input}}, [1]_2) = e(\pi_{\text{input}}, [\alpha_{\text{in}}]_2)$$
+$$e(\pi'\_{\text{input}}, [1]\_2) = e(\pi\_{\text{input}}, [\alpha\_{\text{in}}]\_2)$$
 
 If only $\pi_{\text{input}}$ was adjusted, this would fail. But the setup includes the alpha-shifted value for public inputs. Adjust both:
 
-$$\pi'_{\text{input},2} = \pi'_{\text{input},1} + 3 \cdot [\alpha_{\text{in}} \rho L_y(\tau)]_1$$
+$$\pi'\_{\text{input},2} = \pi'\_{\text{input},1} + 3 \cdot [\alpha\_{\text{in}} \rho L\_y(\tau)]\_1$$
 
 The relationship is preserved:
-$$\pi'_{\text{input},2} = \alpha_{\text{in}} \cdot \pi_{\text{input},2}$$
+$$\pi'\_{\text{input},2} = \alpha\_{\text{in}} \cdot \pi\_{\text{input},2}$$
 
 The knowledge check passes.
 
@@ -245,24 +247,24 @@ The forged proof passes all verification checks.
 The verifier processes the forged proof $\pi_2$ with target inputs $(x=1, y=1)$:
 
 **Public input computation**:
-$$\text{PI}_2 = 1 \cdot [\rho L_x(\tau)]_1 + 1 \cdot [\rho L_y(\tau)]_1$$
+$$\text{PI}\_2 = 1 \cdot [\rho L\_x(\tau)]\_1 + 1 \cdot [\rho L\_y(\tau)]\_1$$
 
 **Divisibility check reconstruction**:
-$$[\rho P(\tau)]_1 = 2 \cdot (\text{PI}_2 + \pi_{\text{input},2}) - \pi_{\text{output},1}$$
+$$[\rho P(\tau)]\_1 = 2 \cdot (\text{PI}\_2 + \pi\_{\text{input},2}) - \pi\_{\text{output},1}$$
 
-Substituting $\pi_{\text{input},2} = \pi_{\text{input},1} + 3 \cdot [\rho L_y(\tau)]_1$:
+Substituting $\pi\_{\text{input},2} = \pi\_{\text{input},1} + 3 \cdot [\rho L\_y(\tau)]\_1$:
 
-$$= 2 \cdot (\text{PI}_2 + \pi_{\text{input},1} + 3 \cdot [\rho L_y(\tau)]_1) - \pi_{\text{output},1}$$
+$$= 2 \cdot (\text{PI}\_2 + \pi\_{\text{input},1} + 3 \cdot [\rho L\_y(\tau)]\_1) - \pi\_{\text{output},1}$$
 
-$$= 2 \cdot ((1 \cdot [\rho L_x(\tau)]_1 + 1 \cdot [\rho L_y(\tau)]_1) + \pi_{\text{input},1} + 3 \cdot [\rho L_y(\tau)]_1) - \pi_{\text{output},1}$$
+$$= 2 \cdot ((1 \cdot [\rho L\_x(\tau)]\_1 + 1 \cdot [\rho L\_y(\tau)]\_1) + \pi\_{\text{input},1} + 3 \cdot [\rho L\_y(\tau)]\_1) - \pi\_{\text{output},1}$$
 
-$$= 2 \cdot (1 \cdot [\rho L_x(\tau)]_1 + 4 \cdot [\rho L_y(\tau)]_1 + \pi_{\text{input},1}) - \pi_{\text{output},1}$$
+$$= 2 \cdot (1 \cdot [\rho L\_x(\tau)]\_1 + 4 \cdot [\rho L\_y(\tau)]\_1 + \pi\_{\text{input},1}) - \pi\_{\text{output},1}$$
 
-$$= 2 \cdot (\text{PI}_1 + \pi_{\text{input},1}) - \pi_{\text{output},1}$$
+$$= 2 \cdot (\text{PI}\_1 + \pi\_{\text{input},1}) - \pi\_{\text{output},1}$$
 
 This is exactly the value used in the original valid proof $\pi_1$! The verifier checks:
 
-$$e([\rho P(\tau)]_1, [1]_2) = e(\pi_{H,1}, [\rho^2 Z(\tau)]_2)$$
+$$e([\rho P(\tau)]\_1, [1]\_2) = e(\pi\_{H,1}, [\rho^2 Z(\tau)]\_2)$$
 
 Since $\pi_1$ was valid, this equation holds, and the forged proof passes verification.
 
