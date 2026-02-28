@@ -1,4 +1,32 @@
 audits:
+  - protocol: "Rain.fi Offerbook Program"
+    protocol_url: "https://compound.finance/"
+    chain: "Solana"
+    type: "Lending, Offerbook"
+    date: "Jan-Feb 2026"
+    report: ""
+
+  - protocol: "Compound Extended Pause Feature"
+    protocol_url: "https://compound.finance/"
+    chain: "EVM"
+    type: "Extended Pause Functionality (PR)"
+    date: "Dec 2025"
+    report: ""
+
+  - protocol: "GOAT Locking Wrapper"
+    protocol_url: "https://www.goat.network/"
+    chain: "EVM"
+    type: "Validator Reward Distribution"
+    date: "Dec 2025"
+    report: ""
+
+  - protocol: "GOAT Safebox Operator Feature"
+    protocol_url: "https://www.goat.network/"
+    chain: "EVM"
+    type: "Bridge"
+    date: "Nov 2025"
+    report: ""
+
   - protocol: "Tally Wrapped Fixed LST"
     protocol_url: "https://docs.tally.xyz/"
     chain: "EVM"
