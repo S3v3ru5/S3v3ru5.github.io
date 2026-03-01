@@ -1,12 +1,12 @@
 audits:
   - protocol: "Rain.fi Offerbook Program"
-    protocol_url: "https://compound.finance/"
+    protocol_url: "https://docs.rain.fi/droplets"
     chain: "Solana"
-    type: "Lending, Offerbook"
+    type: "P2P Lending"
     date: "Jan-Feb 2026"
     report: ""
 
-  - protocol: "Compound Extended Pause Feature"
+  - protocol: "Compound Governance Extended Pause Feature"
     protocol_url: "https://compound.finance/"
     chain: "EVM"
     type: "Extended Pause Functionality (PR)"
