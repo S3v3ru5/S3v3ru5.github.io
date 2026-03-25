@@ -9,7 +9,7 @@ math: false
 
 # Partial Liquidations II: The Health Factor Threshold
 
-Part I showed that `LT * (1 + bonus) >= 1` causes partial liquidations to produce bad debt for all unhealthy positions. When `k = LT * (1 + bonus)`, the gap between debt and counted collateral changes by `r * (k - 1)` each pass. When `k < 1`, the gap narrows and the position moves toward health.
+[Part I]({{< ref "2026-03-24-partial-liquidations-I" >}}) showed that `LT * (1 + bonus) >= 1` causes partial liquidations to produce bad debt for all unhealthy positions. When `k = LT * (1 + bonus)`, the gap between debt and counted collateral changes by `r * (k - 1)` each pass. When `k < 1`, the gap narrows and the position moves toward health.
 
 This post examines the next question: when `k < 1`, do all liquidatable positions recover? The answer depends on where the position's HF sits relative to `k`.
 
