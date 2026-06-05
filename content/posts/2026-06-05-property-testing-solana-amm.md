@@ -1,6 +1,6 @@
 ---
 title: Property testing Solana AMM using Proptest
-date: 2026-06-06
+date: 2026-06-05
 tags: [Solana,AMM]
 slug: solana-property-testing
 ---
