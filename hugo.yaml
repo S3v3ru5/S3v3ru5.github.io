@@ -87,8 +87,8 @@ menu:
       name: CV
       url: /cv/
       weight: 20
-    - identifier: archive
-      name: Archive
+    - identifier: ctf-writeups
+      name: CTF Writeups
       url: /notes/
       weight: 30
 
